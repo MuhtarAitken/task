@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Project</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link href="styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class=" container text-left" >
+    <a class="btn btn-primary" role="button"  th:href="@{/index}">home page </a>
+    <a class="btn btn-primary" role="button"  th:href="@{/list}">List Task </a>
+    <a class="btn btn-primary" role="button"  th:href="@{/project/new}">Add Project </a>
+</div>
+<div class="container text-center">
+    <h1> Create new Project</h1>
+    <div>
+        <form th:action="@{/project/save}" th:object="${project}" method="post"
+              style="max-width: 600px; margin: 0 auto;">
+            <div class="m-3">
+
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">Project name: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="${project.name}" class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">start_date: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="datetime-local"  th:field="${project.start_date}" class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">completion_date</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="date"  th:field="${project.completion_date}" class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">the current status </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text"  th:field="${project.current_status}" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">priority </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input  type="number"  th:field="${project.priority}" class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div>
+                        <label class="col-form-label">task: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select th:field="${project.category}" class="form-control" required>
+                            <th:block th:each="cat : ${listCategories}">
+                                <option th:text="${cat.name}" th:value="${cat.id}"/>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-primary">
+                    SAVE
+                </button>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
