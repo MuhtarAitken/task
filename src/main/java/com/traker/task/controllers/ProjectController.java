@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-
+//Controller (Controller) processes the user's request, creates the appropriate Model and passes it to display in the View.
 @Controller
 public class ProjectController {
 
     @Autowired
     private ProjectRepository projectRepo;
-    @Autowired
+    @Autowired //The @Autowired annotation marks a constructor, field, or method as requiring autowiring by Spring dependency injection.
     private CategoryRepository categoryRepo;
 
     @GetMapping("/project/new")

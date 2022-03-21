@@ -3,10 +3,10 @@ package com.traker.task.models;
 import javax.persistence.*;
 
 
-@Entity
-public class Project {
+@Entity   // 	javax.persistence.Entity ---@Entity - Indicates that the given bean (class) is an entity.//
+public class Project { //
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //@GeneratedValue - indicates that this property will be generated according to the specified strategy.
     private Integer id;
 
     public Integer getId() {
@@ -36,6 +36,8 @@ public class Project {
     @Column (length = 128, nullable = false, unique = true)
     private String name;
     private String start_date;
+                                  ////// setter and getter
+
 
     public String getCurrent_status() {
         return current_status;
@@ -75,13 +77,13 @@ public class Project {
     private String completion_date;
 
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne                                //@ManyToOne - Indicates a many-to-one relationship.
+    @JoinColumn(name = "category_id")         //indicates a connection
     private Category category;
 
 
 
-
+                                               //Constructors in Java
     public Project(Integer id) {
         this.id = id;
     }

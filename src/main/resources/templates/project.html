@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
@@ -15,6 +16,7 @@
 <br>
 <div class=" container text-left" >
     <a class="btn btn-primary" role="button"  th:href="@{/index}">home page </a>
+    <a class="btn btn-primary" role="button"  th:href="@{/project/new}">Add Project </a>
     <a class="btn btn-primary" role="button"  th:href="@{/project/new}">Add Project </a>
 </div>
 <div class=" container text-center" >
@@ -45,7 +47,7 @@
                     <td>[[${project.current_status}]]</td>
                     <td>[[${project.priority}]]</td>
 
-                    <td>[[${project.category.name}]] > Edit</a> </td>
+                    <td>[[${project.category.name}]]</td>
                     <td>
                         <a class="btn btn-primary"  th:href="@{'/project/edit/'+ ${project.id}}">EDIT</a>
                         &nbsp;
