@@ -11,3 +11,6 @@ Software programs:
 - Java Development Kit (JDK 1.8 Oracle)
 - Spring Tool Suite IDE (STS)
 - MySQL Community Server 
+
+
+- CRUD on many-to-one relationship between project and category task
